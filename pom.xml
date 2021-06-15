@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.quipy</groupId>
     <artifactId>server</artifactId>
-    <version>${current-version}-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>server</name>
     <description>Quipy RESTful Server</description>
     <properties>
