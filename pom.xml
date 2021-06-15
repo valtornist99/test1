@@ -132,10 +132,10 @@
     </dependencies>
 
     <scm>
-        <connection>scm:svn:http://127.0.0.1/dummy</connection>
-        <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+        <connection>scm:git:https://https://github.com/${github}.git</connection>
+        <developerConnection>scm:git:https://https://github.com/${github}.git</developerConnection>
         <tag>HEAD</tag>
-        <url>http://127.0.0.1/dummy</url>
+        <url>https://https://github.com/${github}.git</url>
     </scm>
          
     <build>
