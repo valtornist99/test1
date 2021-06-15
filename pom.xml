@@ -16,6 +16,7 @@
     <description>Quipy RESTful Server</description>
     <properties>
         <current-version>0.0.1</current-version>
+        <spring.boot.version>2.4.4</spring.boot.version>
              
         <java.version>11</java.version>
         <kotlin.version>1.4.31</kotlin.version>
