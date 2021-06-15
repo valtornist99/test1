@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  mongo:
+    restart: always
+    image: mongo:4.4.4
+    volumes:
+      - mongo_data:/data/db
+  server:
+    restart: always
+    image: quipy-server:latest
+    links:
+      - mongo
+  client:
+    restart: always
+    ports:
+      - 8080:80
+    image: quipy-client:latest
+    links:
+      - server
+volumes:
+  mongo_data: { }
