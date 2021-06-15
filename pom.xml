@@ -23,6 +23,9 @@
              
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+             
+        <maven.test.skip>true</maven.test.skip>
+        <maven.test.failure.ignore>true</maven.test.failure.ignore>
     </properties>
     <dependencies>
         <dependency>
