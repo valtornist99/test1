@@ -101,7 +101,7 @@ internal class SeenTest {
         eventSourcingQuestionService.update(addCommentQuestionEvent)
         eventSourcingQuestionService.update(addCommentQuestionEvent2)
 
-        await.atMost(1, TimeUnit.SECONDS).until {
+        await.atMost(30, TimeUnit.SECONDS).until {
             threadRepository.findById(questionId.toString()).map {
                 it.numberOfComments == 2
             }.orElse(false)
@@ -109,7 +109,7 @@ internal class SeenTest {
 
         seenService.threadSeenByUser(questionId.toString(), QuipyBot.botUserUuid)
 
-        await.atMost(1, TimeUnit.SECONDS).until {
+        await.atMost(30, TimeUnit.SECONDS).until {
             seenService.getSeensForQuestions(QuipyBot.botUserUuid, setOf(questionId.toString()))
                 .first()
                 .numberOfUnreadComments == 0
@@ -124,12 +124,12 @@ internal class SeenTest {
         )
 
 
-        await.atMost(1, TimeUnit.SECONDS).until {
+        await.atMost(30, TimeUnit.SECONDS).until {
             seenService.getSeensForQuestions(andreyUser.id, setOf(questionId.toString()))
                 .first()
                 .numberOfUnreadComments == 0
         }
-        await.atMost(1, TimeUnit.SECONDS).until {
+        await.atMost(30, TimeUnit.SECONDS).until {
             seenService.getSeensForQuestions(QuipyBot.botUserUuid, setOf(questionId.toString()))
                 .first()
                 .numberOfUnreadComments == 1
