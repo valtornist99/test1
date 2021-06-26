@@ -22,7 +22,7 @@
         <kotlin.version>1.4.31</kotlin.version>
              
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
-        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+        <dockerfile-maven-plugin-custom.version>1.4.14</dockerfile-maven-plugin.version>
              
         
     </properties>
@@ -199,8 +199,8 @@
             <!-- Нужен для сборки docker image с тегами, и его пуша в docker registry -->
             <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile-maven-plugin.version}</version>
+                <artifactId>dockerfile-maven-plugin-custom</artifactId>
+                <version>${dockerfile-maven-plugin-custom.version}</version>
 
                 <dependencies>
                     <dependency>
