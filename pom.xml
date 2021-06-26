@@ -22,7 +22,7 @@
         <kotlin.version>1.4.31</kotlin.version>
              
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
-        <dockerfile-maven-plugin-custom.version>1.4.14</dockerfile-maven-plugin.version>
+        <dockerfile-maven-plugin-custom.version>1.4.14</dockerfile-maven-plugin-custom.version>
              
         
     </properties>
