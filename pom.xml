@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.4</version>
+        <groupId>com.itmo.microservices</groupId>
+        <artifactId>parent-pom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.quipy</groupId>
@@ -14,16 +14,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>server</name>
     <description>Quipy RESTful Server</description>
+    
     <properties>
-        <current-version>0.0.1</current-version>
-        <spring.boot.version>2.4.4</spring.boot.version>
-             
         <java.version>11</java.version>
-        <kotlin.version>1.4.31</kotlin.version>
-             
-        <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
-        <dockerfile-maven-plugin-custom.version>1.4.14-SNAPSHOT</dockerfile-maven-plugin-custom.version>    
+        <kotlin.version>1.4.31</kotlin.version> 
     </properties>
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -130,21 +126,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <scm>
-        <connection>scm:git:https://https://github.com/${github}.git</connection>
-        <developerConnection>scm:git:https://https://github.com/${github}.git</developerConnection>
-        <tag>HEAD</tag>
-        <url>https://https://github.com/${github}.git</url>
-    </scm>
-    
-    <!-- Нужен для пуша jar в репозиторий libs-snapshot-local в jfrog artifactory -->
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://artifactory:8081/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>
          
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
@@ -173,58 +154,6 @@
                         <version>${kotlin.version}</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-                 
-            <!-- Нужен для определения текущей ветки(scmBranch) -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>${buildnumber-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                </configuration>
-            </plugin>
-
-            <!-- Нужен для сборки docker image с тегами, и его пуша в docker registry -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin-custom</artifactId>
-                <version>${dockerfile-maven-plugin-custom.version}</version>
-
-                <dependencies>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-logging</artifactId>
-                        <version>${spring.boot.version}</version>
-                    </dependency>
-                </dependencies>
-
-                <executions>
-                    <execution>
-                        <id>build and push image</id>
-                        <phase>deploy</phase>
-                        <inherited>true</inherited>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-
-                        <configuration>
-                            <!-- those 2 properties can be unresolvable locally-->
-                            <repository>${env.DOCKER_REPO_HOST_INTERNAL}/${project.artifactId}</repository>
-                            <tag>${scmBranch}_${project.version}</tag>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
