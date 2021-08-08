@@ -221,7 +221,7 @@
                         <configuration>
                             <!-- those 2 properties can be unresolvable locally-->
                             <repository>${env.DOCKER_REPO_HOST_INTERNAL}/${project.artifactId}</repository>
-                            <tag>${scmBranch}_${current-version}</tag>
+                            <tag>${scmBranch}_${project.version}</tag>
                         </configuration>
                     </execution>
                 </executions>
