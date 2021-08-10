@@ -234,7 +234,7 @@
                 <configuration>
                     <to>
                         <image>${env.DOCKER_REPO_HOST_INTERNAL}/${project.artifactId}</image>
-                        <tags>${scmBranch}_${current-version}</tags>
+                        <tags>${scmBranch}_${project.version}</tags>
                     </to>
                     <allowInsecureRegistries>true</allowInsecureRegistries>
                 </configuration>
