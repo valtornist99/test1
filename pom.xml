@@ -237,6 +237,15 @@
                         <tags>${scmBranch}_${current-version}</tags>
                     </to>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>build and push image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
