@@ -11,11 +11,11 @@
     </parent>
     <groupId>com.quipy</groupId>
     <artifactId>server-test</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>server</name>
     <description>Quipy RESTful Server</description>
     <properties>
-        <current-version>0.0.1</current-version>
+        <current-version>0.0.2</current-version>
         <spring.boot.version>2.4.4</spring.boot.version>
              
         <java.version>11</java.version>
